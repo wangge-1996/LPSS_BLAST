@@ -16,9 +16,10 @@ dependencies:
   - pip>=24.3.1
 ```
 ## Usage
-Prior to running the pipeline, you must configure Tm-vec according to its official documentation, and save the downloaded pretrained model to the `model` folder. Official repo: https://github.com/tymor22/tm-vec
+Prior to running the pipeline, please install BLAST and configure Tm-vec following its official documentation. The downloaded pretrained model should be placed in the `model` folder.
+Official repository: https://github.com/tymor22/tm-vec
 ```bash
 python LPSS_BLAST.py --query_gene query.fasta --database_gene target.fasta
 ```
-
+query.fasta is your query protein sequence file, and target.fasta is the target protein database for your search.
 ## Citation

@@ -4,36 +4,21 @@ Code for the paper: Structure-based proteome mining reveals latent symbiotic nit
 ## Installation
 ### Getting started
 ```bash
-git clone https://github.com/wangge-1996/R570_Sugarcane_Genome_Upgrade.git
-cd R570_Sugarcane_Genome_Upgrade
+git clone https://github.com/wangge-1996/LPSS_BLAST.git
+cd LPSS_BLAST
 ```
 ### Install Dependencies
 ```yaml
 dependencies:
   - python=3.9
-  - biopython>=1.84
   - pandas>=2.2.3
-  - numpy>=1.26.4
-  - bedtools>=2.31.1
-  - openpyxl>=3.1.5
-  - pytables>=3.9.2
+  - biopython>=1.84
   - pip>=24.3.1
 ```
 ## Usage
-Prior to running the pipeline, the resequencing data must be assembled into contigs. Flye, minimap2 and hifiasm are recommended for this purpose.
+Prior to running the pipeline, you must configure Tm-vec according to its official documentation, and save the downloaded pretrained model to the `model` folder. Official repo: https://github.com/tymor22/tm-vec
 ```bash
-# Step 1: Extract sequences from reference genome
-python 0_seqdata.py
+python LPSS_BLAST.py --query_gene query.fasta --database_gene target.fasta
 ```
-The extracted sequences need to be aligned with the reference genome using BLAST.
 
-```bash
-# Step 2: Fill genome gaps and extend head/tail sequences
-python 1_gap_filling.py
-python 1_head_tail_filling.py
-# Step 3: Merge analysis results
-python 1_result_merge.py
-# Step 4: Update reference genome and annotation files
-python 2_update_files.py
-```
 ## Citation
